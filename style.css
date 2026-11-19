@@ -1,0 +1,429 @@
+
+/* =========================
+   GLOBAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background: #100d13;
+    color: #ffffff;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #211522 0%,
+            #100d13 65%
+        );
+}
+
+.glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.25;
+
+    animation: glowMove 8s ease-in-out infinite alternate;
+}
+
+.glow-one {
+    background: #d64d87;
+    top: 5%;
+    left: 10%;
+}
+
+.glow-two {
+    background: #8a4e9c;
+    bottom: 5%;
+    right: 10%;
+
+    animation-delay: 2s;
+}
+
+@keyframes glowMove {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(80px, 50px);
+    }
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.container {
+    width: min(90%, 650px);
+
+    padding: 65px 35px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.035);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+
+    animation: appear 1.5s ease forwards;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================
+   TOP LABEL
+========================= */
+
+.top-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    color: #c89aaf;
+
+    margin-bottom: 35px;
+}
+
+.line {
+    width: 30px;
+    height: 1px;
+
+    background: #a96c88;
+}
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+.heart {
+    font-size: 42px;
+    color: #e88caf;
+
+    margin-bottom: 25px;
+
+    animation: heartbeat 1.8s ease-in-out infinite;
+
+    text-shadow:
+        0 0 25px rgba(232,140,175,0.7);
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(38px, 8vw, 68px);
+
+    font-weight: 400;
+    line-height: 1.3;
+
+    letter-spacing: -1px;
+
+    overflow-wrap: anywhere;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 35px;
+    font-weight: 400;
+    font-style: italic;
+
+    color: #e9a1bc;
+
+    margin-top: 8px;
+
+    min-height: 48px;
+}
+
+/* =========================
+   TYPEWRITER CURSOR
+========================= */
+
+.cursor {
+    display: inline-block;
+
+    color: #e9a1bc;
+    font-weight: 300;
+
+    margin-left: 4px;
+
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+    margin: 35px auto;
+
+    color: #d78ca9;
+    font-size: 17px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    max-width: 410px;
+
+    min-height: 120px;
+
+    margin: auto;
+
+    color: #c8bdc7;
+
+    font-size: 13px;
+    font-weight: 300;
+
+    line-height: 2.1;
+    letter-spacing: 0.4px;
+}
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature {
+    margin-top: 35px;
+
+    color: #e3a2bb;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 18px;
+    font-style: italic;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition: all 1s ease;
+}
+
+.signature.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.signature span {
+    color: #f08eb5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 55px;
+
+    color: #786d79;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.particles span {
+    position: fixed;
+
+    bottom: -50px;
+
+    color: rgba(236,155,190,0.4);
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    animation: floatUp 12s linear infinite;
+}
+
+.particles span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particles span:nth-child(2) {
+    left: 25%;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(3) {
+    left: 42%;
+    animation-delay: 6s;
+}
+
+.particles span:nth-child(4) {
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(5) {
+    left: 75%;
+    animation-delay: 5s;
+}
+
+.particles span:nth-child(6) {
+    left: 88%;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(7) {
+    left: 50%;
+    animation-delay: 8s;
+}
+
+.particles span:nth-child(8) {
+    left: 35%;
+    animation-delay: 10s;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 50px 22px;
+    }
+
+    .top-label {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .message {
+        font-size: 12px;
+    }
+
+    .footer {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

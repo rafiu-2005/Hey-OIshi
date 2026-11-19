@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Oishi ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <span>♡</span>
+        <span>✦</span>
+        <span>♡</span>
+        <span>✧</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>♡</span>
+        <span>♥</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="top-label">
+            <span class="line"></span>
+            A LITTLE MESSAGE FOR YOU
+            <span class="line"></span>
+        </div>
+
+        <!-- Animated Heart -->
+        <div class="heart">
+            <span>♥</span>
+        </div>
+
+        <!-- Typewriter Heading -->
+        <h1>
+            <span id="typing-title"></span><span class="cursor">|</span>
+        </h1>
+
+        <h2 id="typing-name"></h2>
+
+        <div class="divider">
+            <span>✦</span>
+        </div>
+
+        <!-- Typewriter Message -->
+        <p class="message" id="typing-message"></p>
+
+        <!-- Signature -->
+        <p class="signature" id="signature">
+            With all my thoughts, <span>♡</span>
+        </p>
+
+        <!-- Footer -->
+        <div class="footer">
+            MADE WITH LOVE · JUST FOR YOU
+        </div>
+
+    </main>
+
+    <!-- Typewriter JavaScript -->
+    <script>
+
+        const title = "I miss you so much,";
+        const name = "Oishi.";
+
+        const message = `Some people stay in our thoughts,
+even when they're miles away.
+
+And somehow, you're always there.
+In the quiet moments, in the little things,
+and in the spaces between everything.`;
+
+        const titleElement = document.getElementById("typing-title");
+        const nameElement = document.getElementById("typing-name");
+        const messageElement = document.getElementById("typing-message");
+        const signatureElement = document.getElementById("signature");
+
+        function typeText(element, text, speed, callback) {
+
+            let index = 0;
+
+            function type() {
+
+                if (index < text.length) {
+
+                    const character = text.charAt(index);
+
+                    if (character === "\n") {
+                        element.appendChild(document.createElement("br"));
+                    } else {
+                        element.appendChild(document.createTextNode(character));
+                    }
+
+                    index++;
+
+                    setTimeout(type, speed);
+
+                } else if (callback) {
+
+                    callback();
+
+                }
+            }
+
+            type();
+        }
+
+        // Animation Sequence
+
+        window.addEventListener("load", () => {
+
+            setTimeout(() => {
+
+                typeText(titleElement, title, 85, () => {
+
+                    setTimeout(() => {
+
+                        typeText(nameElement, name, 150, () => {
+
+                            setTimeout(() => {
+
+                                typeText(messageElement, message, 35, () => {
+
+                                    signatureElement.classList.add("show");
+
+                                });
+
+                            }, 500);
+
+                        });
+
+                    }, 400);
+
+                });
+
+            }, 1000);
+
+        });
+
+    </script>
+
+</body>
+</html>
